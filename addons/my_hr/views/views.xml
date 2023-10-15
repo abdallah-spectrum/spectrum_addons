@@ -1,0 +1,122 @@
+<odoo>
+  <data>
+
+
+    <record model="ir.ui.view" id="main_tax_list">
+      <field name="name">main tax</field>
+      <field name="model">tax.main</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="start_date"/>
+          <field name="end_date"/>
+          <field name="segments_number"/>
+          <field name="personal_exemption"/>
+        </tree>
+      </field>
+    </record>
+
+
+<record id="main_tax_form" model="ir.ui.view">
+        <field name="name">tax.main.form</field>
+        <field name="model">tax.main</field>
+        <field name="arch" type="xml">
+            <form >
+          <group>
+            <group>
+          <field name="start_date"/>
+          <field name="end_date"/>
+          <field name="max_val"/>
+          <field name="segments_number"/>
+          <field name="personal_exemption"/>
+          </group>            
+         </group>
+         <field name="tax_lines">
+              <form>
+              <group>
+              <field name="name" />
+              <field name="ultimate_flag" />
+              <field name="starting_from" />
+              <field name="min_val" />
+              <field name="max_val" />
+              <field name="percentage" />
+               </group>
+            </form>
+            <tree editable="bottom">
+            <field name="name" />
+              <field name="ultimate_flag" />
+              <field name="starting_from" />
+              <field name="min_val" />
+              <field name="max_val" />
+              <field name="percentage" />
+            </tree>
+        </field>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="my_hr.action_window_main">
+      <field name="name">Main</field>
+      <field name="res_model">tax.main</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+
+    <record model="ir.ui.view" id="penalties_list">
+      <field name="name">penalties</field>
+      <field name="model">penalties</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="date"/>
+          <field name="contrary"/>
+          <field name="penalty"/>
+        </tree>
+      </field>
+    </record>
+
+
+<record  model="ir.ui.view" id="penalties_form">
+        <field name="name">penalties.form</field>
+        <field name="model">penalties</field>
+        <field name="arch" type="xml">
+            <form >
+          <group>
+            <group>
+          <field name="name"/>
+          <field name="salary_affected"/>
+          <field name="date"/>
+          <field name="contrary"/>
+          <field name="penalty"/>
+          </group>            
+         </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="my_hr.penalties_window">
+      <field name="name">penalties</field>
+      <field name="res_model">penalties</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="tax" id="my_hr.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Main" action="my_hr.action_window_main" id="my_hr.main" sequence="1" parent="my_hr.menu_root"/>
+    <menuitem name="Penalties" action="my_hr.penalties_window" id="my_hr.penalties" sequence="1" parent="my_hr.menu_root"/>
+    
+
+    <!-- actions -->
+    
+
+  </data>
+</odoo>

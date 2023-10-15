@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>   
+<record id="hr_contract_customizations_form" model="ir.ui.view">       
+<field name="name">hr contract form</field>       
+<field name="inherit_id" ref="hr_contract.hr_contract_view_form" />       
+<field name="model">hr.contract</field>       
+<field name="arch" type="xml">              
+
+<xpath expr="//field[@name='wage_type']" position="after"> 
+<field name="tax_id"/> 
+</xpath>
+
+
+<xpath expr="//field[@name='department_id']" position="after"> 
+
+<br />
+<field name="college"/> 
+<field name="degree"/> 
+<br />
+
+</xpath>
+
+</field>   
+</record>
+</odoo>

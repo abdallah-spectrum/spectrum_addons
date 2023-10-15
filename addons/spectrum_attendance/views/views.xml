@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="spectrum_attendance.action_window">
+      <field name="name">spectrum_attendance window</field>
+      <field name="res_model">spectrum.attendance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="spectrum_attendance" id="spectrum_attendance.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="spectrum_attendance.menu_1" parent="hr_attendance.menu_hr_attendance_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="proccess" id="spectrum_attendance.menu_1_list" parent="hr_attendance.menu_hr_attendance_root"
+              action="spectrum_attendance.action_window"/>
+
+  </data>
+</odoo>
